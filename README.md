@@ -36,9 +36,10 @@ To update or rebuild these:
 
 * Set the versions and stack environment in `support/docker-compose.yml`
 * Set the AWS keys to ones with permission to push to the selected S3 bucket
+  * These values can be set in `support/.env`
 * If updating the stack, also update it in `support/Dockerfile`
 * *Make sure you've deleted any cached heroku docker images*
-* Build with `cd support && docker-compose run geo-build`
+* Build with `cd support && sudo docker-compose run`
 * Wait 20 minutes, and check the contents of the relevant stack folder on S3
 
 Testing
@@ -60,4 +61,8 @@ For rgeo:
 => true
 >>> RGeo::Geos.supported?
 => true
+```
+
+```shell
+rails r "require 'rgeo'; puts RGeo::Geos.supported?"
 ```

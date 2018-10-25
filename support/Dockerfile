@@ -2,7 +2,8 @@ FROM heroku/heroku:16-build
 MAINTAINER cyberdelia
 
 RUN apt-get -q update
-RUN apt-get -q -y --no-install-recommends install awscli
+RUN apt install -y python-pip
+RUN pip install awscli --upgrade
 
 ADD package_gdal package_gdal
 ADD package_geos package_geos
